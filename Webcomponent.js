@@ -78,7 +78,7 @@
                                     "units": "LB",
                                     "value": 22
                                 },
-                                "groupPackageCount": nQuantity
+                                "groupPackageCount": 10
                             }],
                             "customsClearanceDetail": {
                                 "commercialInvoice": {
