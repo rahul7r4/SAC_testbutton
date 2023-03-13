@@ -40,73 +40,24 @@
                         "Content-Type": "application/json",
                         "Authorization": "Bearer " + data.access_token
                     };
-                    var url = "https://apis-sandbox.fedex.com/rate/v1/rates/quotes";
-                    var oData = {
-                        "accountNumber": {
-                            "value": "740561073"
-                        },
-                        "rateRequestControlParameters": {
-                            "returnTransitTimes": true,
-                            "servicesNeededOnRateFailure": true,
-                            "variableOptions": "FREIGHT_GUARANTEE",
-                            "rateSortOrder": "SERVICENAMETRADITIONAL"
-                        },
-                        "requestedShipment": {
-                            "shipper": {
-                                "address": {
-                                    "postalCode": "35004",
-                                    "countryCode": "US",
-                                    "residential": false
-                                }
-                            },
-                            "recipient": {
-                                "address": {
-                                    "postalCode": "60001",
-                                    "countryCode": "US",
-                                    "residential": false
-                                }
-                            },
-                            "rateRequestType": [
-                                "LIST",
-                                "PREFERRED",
-                                "INCENTIVE",
-                                "ACCOUNT"
-                            ],
-                            "pickupType": "CONTACT_FEDEX_TO_SCHEDULE",
-                            "requestedPackageLineItems": [{
-                                "weight": {
-                                    "units": "LB",
-                                    "value": 22
-                                },
-                                "groupPackageCount": 10
-                            }],
-                            "customsClearanceDetail": {
-                                "commercialInvoice": {
-                                    "shipmentPurpose": "GIFT"
-                                },
-                                "freightOnValue": "CARRIER_RISK",
-                                "dutiesPayment": {},
-                                "commodities": [{
-                                    "description": "DOCUMENTS",
-                                    "weight": {
-                                        "units": "LB",
-                                        "value": 22
-                                    },
-                                    "quantity": 1,
-                                    "customsValue": {
-                                        "amount": "100",
-                                        "currency": "INR"
-                                    },
-                                    "unitPrice": {
-                                        "amount": "100",
-                                        "currency": "INR"
-                                    },
-                                    "numberOfPieces": 1,
-                                    "countryOfManufacture": "IN",
-                                    "quantityUnits": "PCS"
-                                }]
-                            }
-                        }
+                    var url = "https://apis-sandbox.fedex.com/track/v1/associatedshipments";
+                    var oData = {    
+"includeDetailedScans": true,    
+"associatedType": "STANDARD_MPS",    
+"masterTrackingNumberInfo": 
+{        
+"shipDateEnd": "2023-03-22",        
+"shipDateBegin": "2023-03-20",        
+"trackingNumberInfo": {            
+"trackingNumberUniqueId": "245822~123456789012~FDEG",            
+"carrierCode": "FDXE",            
+"trackingNumber": "858488600850"        
+}    },    
+"pagingDetails": 
+{        
+"resultsPerPage": 56,        
+"pagingToken": "38903279038"    
+}}
                     };
  
                     $.ajax({
